@@ -1,10 +1,7 @@
-import { Image, StyleSheet, FlatList, Pressable } from 'react-native';
+import { Image, StyleSheet, FlatList, View } from 'react-native';
 
-import EditScreenInfo from '../../../components/EditScreenInfo';
-import { Text, View } from '../../../components/Themed';
-
-import tweets from '../../../assets/data/tweets';
-import { Tweet } from '../../../components/Tweet';
+import tweets from '../../../../assets/data/tweets';
+import { Tweet } from '../../../../components/Tweet';
 import { Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 

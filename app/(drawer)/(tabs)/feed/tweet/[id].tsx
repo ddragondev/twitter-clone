@@ -1,7 +1,7 @@
 import { useSearchParams } from "expo-router";
 import { Text } from "react-native";
-import tweets from "../../assets/data/tweets";
-import { Tweet } from "../../components/Tweet";
+import tweets from "../../../../../assets/data/tweets";
+import { Tweet } from "../../../../../components/Tweet";
 export default function TweetScreen() {
     const { id } = useSearchParams();
 

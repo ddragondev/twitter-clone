@@ -1,18 +1,22 @@
-import { withLayoutContext } from "expo-router";
 import {
-    createDrawerNavigator, DrawerContentScrollView,
+    DrawerContentScrollView,
     DrawerItemList,
 } from "@react-navigation/drawer";
 import { Text } from "react-native";
-const DrawerNavigator = createDrawerNavigator().Navigator;
-const Drawer = withLayoutContext(DrawerNavigator);
+// const DrawerNavigator = createDrawerNavigator().Navigator;
+// const Drawer = withLayoutContext(DrawerNavigator);
+import { Drawer } from "expo-router/drawer";
+import { usePathname } from "expo-router";
 
 export const unstable_settings = {
     // Ensure that reloading on `/modal` keeps a back button present.
     initialRouteName: '(tabs)',
 };
 
-function CustomDrawerContent(props) {
+function CustomDrawerContent(props: any) {
+
+    const filterRoutes = props.state.routes.filter((route: any) => route.name !== 'index')
+
     return (
         <DrawerContentScrollView {...props}>
             <Text style={{
@@ -21,7 +25,12 @@ function CustomDrawerContent(props) {
                 textAlign: 'center',
                 color: '#1DA1F2'
             }}>Dragon</Text>
-            <DrawerItemList {...props} />
+
+
+            <DrawerItemList {...props}
+                state={{ ...props.state, routes: filterRoutes }}
+            />
+
         </DrawerContentScrollView>
     )
 }

@@ -11,7 +11,7 @@ import { Link } from 'expo-router';
 const Tweet = ({ tweet }: TweetProps) => {
 
     return (
-        <Link href={`/tweet/${tweet.id}`} asChild>
+        <Link href={`feed/tweet/${tweet.id}`} asChild>
 
             <Pressable style={styles.container}>
                 <Image source={{ uri: tweet.user.image }} style={styles.userImage} />

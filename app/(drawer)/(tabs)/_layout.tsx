@@ -5,6 +5,7 @@ import { Pressable, useColorScheme, Image } from 'react-native';
 import Colors from '../../../constants/Colors'
 
 
+import { usePathname } from "expo-router";
 
 const AvatarHeader = () => {
   const navigation = useNavigation();
@@ -26,8 +27,17 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+
+export const unstable_settings = {
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: 'two',
+};
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const pathname = usePathname();
+
+  console.log(pathname + ' usePathname')
 
   return (
     <Tabs
@@ -35,9 +45,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
       <Tabs.Screen
-        name="index"
+        name="feed"
         options={{
-          title: 'Tab One',
+          title: 'Feed',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
