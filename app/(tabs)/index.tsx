@@ -4,7 +4,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 
 import tweets from '../../assets/data/tweets';
-import Tweet from '../../components/Tweet';
+import { Tweet } from '../../components/Tweet';
 
 export default function TabOneScreen() {
   return (
